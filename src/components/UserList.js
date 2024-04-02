@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getUsers } from '../ApiCall/Users';
 import ContactCard from '../components/ContactCard';
-// import Pagination from '../components/Pagination';
+import Pagination from '../components/Pagination';
 
 const UserList = () => {
     const [users, setUsers] = useState([]);
@@ -36,11 +36,11 @@ const UserList = () => {
                     <ContactCard key={user.id} user={user} />
                 ))}
             </div>
-            {/* <Pagination
+            <Pagination
                 usersPerPage={usersPerPage}
                 totalUsers={users.length}
                 paginate={paginate}
-            /> */}
+            />
         </div>
     );
 };
