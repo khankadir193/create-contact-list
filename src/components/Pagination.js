@@ -10,7 +10,7 @@ const Pagination = ({ usersPerPage, totalUsers, paginate }) => {
 
     return (
         <nav className="mt-4">
-            <ul className="flex justify-center">
+            <ul className="flex justify-center gap-2">
                 {pageNumbers.map(number => (
                     <li key={number}>
                         <button

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getUsers } from '../ApiCall/Users';
 import ContactCard from '../components/ContactCard';
 import Pagination from '../components/Pagination';
+import user from './user.json';
 
 const UserList = () => {
     const [users, setUsers] = useState([]);
@@ -12,7 +13,8 @@ const UserList = () => {
         const fetchUsers = async () => {
             try {
                 const response = await getUsers();
-                setUsers(response.data);
+                // setUsers(response.data);
+                setUsers(user);
             } catch (error) {
                 console.error('Error fetching users:', error);
             }
