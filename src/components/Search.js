@@ -1,0 +1,36 @@
+import React, { useState } from 'react';
+
+const Search = ({ data }) => {
+    const [query, setQuery] = useState('');
+    const [filteredData, setFilteredData] = useState(data);
+
+    const handleSearch = (event) => {
+        const inputValue = event.target.value;
+        setQuery(inputValue);
+        const filteredResults = data.filter(item =>
+            item.toLowerCase().includes(inputValue.toLowerCase())
+        );
+        setFilteredData(filteredResults);
+    };
+
+    return (
+        <div>
+            <input
+                type="text"
+                value={query}
+                onChange={handleSearch}
+                placeholder="Search..."
+                className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+            />
+            {/* <ul className="mt-2">
+                {filteredData.map((item, index) => (
+                    <li key={index} className="border-b border-gray-300 py-2">
+                        {item}
+                    </li>
+                ))}
+            </ul> */}
+        </div>
+    );
+};
+
+export default Search;
