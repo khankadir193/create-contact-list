@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 
-const Search = ({ data }) => {
+const Search = ({ data,setFilterData}) => {
     const [query, setQuery] = useState('');
     const [filteredData, setFilteredData] = useState(data);
 
     const handleSearch = (event) => {
         const inputValue = event.target.value;
         setQuery(inputValue);
-        const filteredResults = data.filter(item =>
-            item.toLowerCase().includes(inputValue.toLowerCase())
-        );
+        const filteredResults = data.filter(item =>{
+            return item.name.toLowerCase().includes(inputValue.toLowerCase());
+        });
+        console.log('filteredResults',filteredData);
         setFilteredData(filteredResults);
+        setFilterData(filteredResults);
     };
 
     return (
