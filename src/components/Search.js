@@ -16,7 +16,7 @@ const Search = ({ data,setFilterData}) => {
     };
 
     return (
-        <div>
+        <div className='flex justify-end items-center mt-3 mr-6'>
             <input
                 type="text"
                 value={query}
