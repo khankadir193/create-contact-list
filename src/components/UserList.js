@@ -9,7 +9,7 @@ const UserList = () => {
     const [users, setUsers] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [usersPerPage] = useState(10);
-    const [filteredData,setFilteredData] = useState([...user]);
+    const [filteredData, setFilteredData] = useState([]);
 
 
     useEffect(() => {
@@ -40,9 +40,12 @@ const UserList = () => {
             <Search data={user} setFilterData={setFilteredData} />
             <div className="container mx-auto mt-8">
                 <div className="grid grid-cols-2 gap-4">
-                    {filteredData.map(user => (
-                        <ContactCard key={user.id} user={user} />
-                    ))}
+                    {
+                        (filteredData.length > 0 ? filteredData : currentUsers).map(user => (
+                            <ContactCard key={user.id} user={user} />
+                        ))
+                    }
+
                 </div>
                 <Pagination
                     usersPerPage={usersPerPage}
