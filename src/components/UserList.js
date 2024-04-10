@@ -32,6 +32,7 @@ const UserList = () => {
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
     console.log('currentUser outside of the scope...',currentUsers);
+    console.log('filteredData..???',filteredData);
 
     // Change page
     const paginate = pageNumber => setCurrentPage(pageNumber);

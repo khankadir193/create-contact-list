@@ -13,10 +13,11 @@ const Search = ({ data,setFilterData}) => {
         if(inputValue.length == 0){
             console.log('no value in search input vlaue...');
             setFilterData([]);
+        }else{
+            console.log('inputValue...??/',inputValue);
+            // setFilteredData(filteredResults);
+            setFilterData(filteredResults);
         }
-        console.log('inputValue...??/',inputValue);
-        // setFilteredData(filteredResults);
-        setFilterData(filteredResults);
     };
 
     return (
