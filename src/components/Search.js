@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const Search = ({ data,setFilterData}) => {
     const [query, setQuery] = useState('');
-    const [filteredData, setFilteredData] = useState(data);
+    // const [filteredData, setFilteredData] = useState(data);
 
     const handleSearch = (event) => {
         const inputValue = event.target.value;
@@ -10,8 +10,12 @@ const Search = ({ data,setFilterData}) => {
         const filteredResults = data.filter(item =>{
             return item.name.toLowerCase().includes(inputValue.toLowerCase());
         });
-        console.log('filteredResults',filteredData);
-        setFilteredData(filteredResults);
+        if(inputValue.length == 0){
+            console.log('no value in search input vlaue...');
+            setFilterData([]);
+        }
+        console.log('inputValue...??/',inputValue);
+        // setFilteredData(filteredResults);
         setFilterData(filteredResults);
     };
 

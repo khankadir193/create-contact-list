@@ -31,6 +31,7 @@ const UserList = () => {
     const indexOfLastUser = currentPage * usersPerPage;
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
+    console.log('currentUser outside of the scope...',currentUsers);
 
     // Change page
     const paginate = pageNumber => setCurrentPage(pageNumber);
@@ -41,9 +42,7 @@ const UserList = () => {
             <div className="container mx-auto mt-8">
                 <div className="grid grid-cols-2 gap-4">
                     {
-                        (filteredData.length > 0 ? filteredData : currentUsers).map(user => (
-                            <ContactCard key={user.id} user={user} />
-                        ))
+                        (filteredData.length > 0 ? filteredData : currentUsers).map(user => ( <ContactCard key={user.id} user={user} />))
                     }
 
                 </div>
